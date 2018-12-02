@@ -5,12 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/css/uikit.min.css" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
+  <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left fullwidth justified">
 
+        <a href="/search"><img class="logo" src="/images/logo.png"></a>
+
+        <div class="uk-navbar-item">
+            <div><a href="#">Acerca de nosotros</a></div>
+        </div>
+
+    </div>
+  </nav>
   {{{body}}}
-
+  <!-- UIkit JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/js/uikit-icons.min.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>

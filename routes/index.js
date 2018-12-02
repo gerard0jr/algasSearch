@@ -4,18 +4,34 @@ const parser    = require('xml-js')
 const fs        = require('fs')
 const Registro = require('../models/Registro')
 
+router.get('/', (req,res,next) => {
+  res.redirect('search')
+})
+
 router.get('/search', (req,res,next) => {
   res.render('index')
 })
 
 router.post('/search', (req,res,next) => {
-  let {search} = req.params
-  Registro.find({title: {$elemMatch: {}}}).limit(10)
+  let {search} = req.body
+  Registro.find({ $or: [
+    {title: {$regex: `${search}`, "$options": "i"}},
+    {notes: {$regex: `${search}`, "$options": "i"}},
+    {custom1: {$regex: `${search}`, "$options": "i"}},
+    {custom2: {$regex: `${search}`, "$options": "i"}},
+    {custom3: {$regex: `${search}`, "$options": "i"}},
+    {custom4: {$regex: `${search}`, "$options": "i"}},
+    {custom5: {$regex: `${search}`, "$options": "i"}},
+    {misc1: {$regex: `${search}`, "$options": "i"}},
+    {misc2: {$regex: `${search}`, "$options": "i"}},
+    {misc3: {$regex: `${search}`, "$options": "i"}},  ]}).limit(10)
   .then(results => {
-    console.log(results)
     res.render('results/result', {results})
   })
+  .catch(err=>next(err))
 })
+
+
 
 router.get('/upload', (req, res, next) => {
 
