@@ -42,4 +42,11 @@ a:hover {
   padding: 1em;
   background-color: white; }
 
+.filtros {
+  display: flex;
+  margin: 20px; }
+
+.uk-search-default {
+  width: 300px; }
+
 /*# sourceMappingURL=style.css.map */
